@@ -58,9 +58,9 @@ emap.setView({
 } else {
   document.getElementById("doEvent").innerHTML = "Not supported."
 }
-document.getElementById("doTiltLR").innerHTML = Math.round(tiltLR);
-document.getElementById("doTiltFB").innerHTML = Math.round(tiltFB);
-document.getElementById("doDirection").innerHTML = Math.round(dir);
+document.getElementById("doTiltLR").innerHTML = tiltLR;
+document.getElementById("doTiltFB").innerHTML = tiltFB;
+document.getElementById("doDirection").innerHTML = dir;
 	
 // if (window.DeviceOrientationEvent) {
 //   document.getElementById("doEvent").innerHTML = "DeviceOrientation";
