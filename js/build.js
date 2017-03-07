@@ -39,89 +39,66 @@ emap.setView({
   }
 });
 // ///////////////Sensor Reading
-	if (window.DeviceOrientationEvent) {
-  document.getElementById("doEvent").innerHTML = "DeviceOrientation";
-  // Listen for the deviceorientation event and handle the raw data
-  window.addEventListener('deviceorientation', function(eventData) {
-    // gamma is the left-to-right tilt in degrees, where right is positive
-    var tiltLR = eventData.gamma;
-
-    // beta is the front-to-back tilt in degrees, where front is positive
-    var tiltFB = eventData.beta;
-
-    // alpha is the compass direction the device is facing in degrees
-    var dir = eventData.alpha
-
-    // call our orientation event handler
-    deviceOrientationHandler(tiltLR, tiltFB, dir);
-  }, false);
-} else {
-  document.getElementById("doEvent").innerHTML = "Not supported."
+// get html elements to append with event values
+var orientationEl = document.getElementById('orientation'),
+  accelerationEl = document.getElementById('acceleration'),
+  accIncGravEl = document.getElementById('accincgrav'),
+  rotationEl = document.getElementById('rotation'),
+  intervalEl = document.getElementById('interval');
+ 
+if (window.DeviceOrientationEvent) {
+  window.addEventListener('deviceorientation', deviceOrientationHandler, false)
 }
-document.getElementById("doTiltLR").innerHTML = tiltLR;
-document.getElementById("doTiltFB").innerHTML = tiltFB;
-document.getElementById("doDirection").innerHTML = dir;
+
+function deviceOrientationHandler(evt) {
+  var orientationData = evt;
+  // compass direction
+  orientationEl.children[1].innerHTML = evt.alpha;
+
+  // vertical tilt
+  orientationEl.children[3].innerHTML = evt.beta;
+
+  // horizontal tilt
+  orientationEl.children[5].innerHTML = evt.gamma;
+}
+
+if (window.DeviceMotionEvent) {
+  window.addEventListener('devicemotion', deviceMotionHandler, false);
+}
+
+function deviceMotionHandler(evt) {
+  var motionData = evt;
+  // acceleration
+  var evAcceleration = evt.acceleration;
+
+  accelerationEl.children[1].innerHTML = evAcceleration.x;
+  accelerationEl.children[3].innerHTML = evAcceleration.y;
+  accelerationEl.children[5].innerHTML = evAcceleration.z;
+
+  // acceleration including gravity
+  var accIncGravity = evt.accelerationIncludingGravity;
+
+  accIncGravEl.children[1].innerHTML = accIncGravity.x;
+  accIncGravEl.children[3].innerHTML = accIncGravity.y;
+  accIncGravEl.children[5].innerHTML = accIncGravity.z;
+
+  // rotation rate
+  var rotationRate = evt.rotationRate;
+
+  rotationEl.children[1].innerHTML = rotationRate.alpha;
+  rotationEl.children[3].innerHTML = rotationRate.beta;
+  rotationEl.children[5].innerHTML = rotationRate.gamma;
+  emap.applyDeltaScaleRotation({
+    rotation: rotationRate.alpha,
+    callback: function(err, state) {
+      handleMapState(err,state,true);
+    }
+  });
+  // interval
+  var interval = evt.interval;
+  intervalEl.children[1].innerHTML = interval;
+}
 	
-// if (window.DeviceOrientationEvent) {
-//   document.getElementById("doEvent").innerHTML = "DeviceOrientation";
-//   // Listen for the deviceorientation event and handle the raw data
-//   window.addEventListener('deviceorientation', function(eventData) {
-//     // gamma is the left-to-right tilt in degrees, where right is positive
-//     var tiltLR = eventData.gamma;
-
-//     // beta is the front-to-back tilt in degrees, where front is positive
-//     var tiltFB = eventData.beta;
-
-//     // alpha is the compass direction the device is facing in degrees
-//     var dir = eventData.alpha
-
-//     // call our orientation event handler
-//     deviceOrientationHandler(tiltLR, tiltFB, dir);
-//   }, false);
-// } else {
-//   document.getElementById("doEvent").innerHTML = "Not supported."
-// }
-//////////////////////////////
-// var UserRote=40;
-// if (window.DeviceOrientationEvent) {
-//  console.log("DeviceOrientation is supported");
-//    emap.applyDeltaScaleRotation({
-//     rotation: UserRote,
-//     callback: function(err, state) {
-//       handleMapState(err,state,true);
-//     }
-//   });
-// }
-//if (window.DeviceOrientationEvent) {
-  //document.getElementById("doEvent").innerHTML = "DeviceOrientation";
-  // Listen for the deviceorientation event and handle the raw data
-  //window.addEventListener('deviceorientation', function(eventData) {
-    // gamma is the left-to-right tilt in degrees, where right is positive
-   // var tiltLR = eventData.gamma;
-
-    // beta is the front-to-back tilt in degrees, where front is positive
-   // var tiltFB = eventData.beta;
-
-    // alpha is the compass direction the device is facing in degrees
- //   var dir = eventData.alpha
-
-    // call our orientation event handler
-  //  deviceOrientationHandler(tiltLR, tiltFB, dir);
- // }, false);
-//} else {
-//  document.getElementById("doEvent").innerHTML = "Not supported."
-//}
-//document.getElementById("doTiltLR").innerHTML = Math.round(tiltLR);
-//document.getElementById("doTiltFB").innerHTML = Math.round(tiltFB);
-//document.getElementById("doDirection").innerHTML = Math.round(dir);
-
-// Apply the transform to the image
-//var logo = document.getElementById("imgLogo");
-//logo.style.webkitTransform =
-//  "rotate("+ tiltLR +"deg) rotate3d(1,0,0, "+ (tiltFB*-1)+"deg)";
-//logo.style.MozTransform = "rotate("+ tiltLR +"deg)";
-//logo.style.transform =
-//  "rotate("+ tiltLR +"deg) rotate3d(1,0,0, "+ (tiltFB*-1)+"deg)";
 /*---- stop dragging of tiles ----*/
 //  domDelegate = require('dom-delegate'),
 // as images are loaded dynamicaly delegate event on class .tile
