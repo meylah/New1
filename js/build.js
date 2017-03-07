@@ -62,8 +62,22 @@ emap.setView({
 var UserRote=40;
 if (window.DeviceOrientationEvent) {
  console.log("DeviceOrientation is supported");
-	  emap.applyDeltaScaleRotation({
-    rotation: UserRote,
+	// Listen for the deviceorientation event and handle the raw data
+  window.addEventListener('deviceorientation', function(eventData) {
+    // gamma is the left-to-right tilt in degrees, where right is positive
+    var tiltLR = eventData.gamma;
+
+    // beta is the front-to-back tilt in degrees, where front is positive
+    var tiltFB = eventData.beta;
+
+    // alpha is the compass direction the device is facing in degrees
+    var dir1 = eventData.alpha
+
+    // call our orientation event handler
+    deviceOrientationHandler(tiltLR, tiltFB, dir1);
+  }, false);
+	emap.applyDeltaScaleRotation({
+    rotation: dir1,
     callback: function(err, state) {
       handleMapState(err,state,true);
     }
