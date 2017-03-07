@@ -62,13 +62,14 @@ emap.setView({
 var UserRote=40;
 if (window.DeviceOrientationEvent) {
  console.log("DeviceOrientation is supported");
-}
-  emap.applyDeltaScaleRotation({
+	  emap.applyDeltaScaleRotation({
     rotation: UserRote,
     callback: function(err, state) {
       handleMapState(err,state,true);
     }
   });
+}
+
 /*---- stop dragging of tiles ----*/
 //  domDelegate = require('dom-delegate'),
 // as images are loaded dynamicaly delegate event on class .tile
