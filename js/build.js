@@ -89,7 +89,7 @@ function deviceMotionHandler(evt) {
   rotationEl.children[3].innerHTML = rotationRate.beta;
   rotationEl.children[5].innerHTML = rotationRate.gamma;
   emap.applyDeltaScaleRotation({
-    rotation: rotationRate.alpha,
+    rotation: rotationRate.beta,
     callback: function(err, state) {
       handleMapState(err,state,true);
     }
