@@ -210,7 +210,7 @@ function deviceMotionHandler(evt) {
   // acceleration
   var evAcceleration = evt.acceleration;
 
-  accelerationEl.children[1].innerHTML = ev.rotation;
+  accelerationEl.children[1].innerHTML = 10;
   accelerationEl.children[3].innerHTML = evAcceleration.y;
   accelerationEl.children[5].innerHTML = evAcceleration.z;
 
@@ -228,7 +228,7 @@ function deviceMotionHandler(evt) {
   rotationEl.children[3].innerHTML = rotationRate.beta;
   rotationEl.children[5].innerHTML = rotationRate.gamma;
   emap.applyDeltaScaleRotation({
-    rotation: lastRot-rotationRate.gamma,
+    rotation:rotationRate.gamma,
     callback: function(err, state) {
       handleMapState(err,state,true);
     }
