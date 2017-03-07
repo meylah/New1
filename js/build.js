@@ -59,10 +59,19 @@ emap.setView({
 //   document.getElementById("doEvent").innerHTML = "Not supported."
 // }
 //////////////////////////////
-var UserRote=40;
+// var UserRote=40;
+// if (window.DeviceOrientationEvent) {
+//  console.log("DeviceOrientation is supported");
+//    emap.applyDeltaScaleRotation({
+//     rotation: UserRote,
+//     callback: function(err, state) {
+//       handleMapState(err,state,true);
+//     }
+//   });
+// }
 if (window.DeviceOrientationEvent) {
- console.log("DeviceOrientation is supported");
-	// Listen for the deviceorientation event and handle the raw data
+  document.getElementById("doEvent").innerHTML = "DeviceOrientation";
+  // Listen for the deviceorientation event and handle the raw data
   window.addEventListener('deviceorientation', function(eventData) {
     // gamma is the left-to-right tilt in degrees, where right is positive
     var tiltLR = eventData.gamma;
@@ -71,19 +80,25 @@ if (window.DeviceOrientationEvent) {
     var tiltFB = eventData.beta;
 
     // alpha is the compass direction the device is facing in degrees
-    var dir1 = eventData.alpha
+    var dir = eventData.alpha
 
     // call our orientation event handler
-    deviceOrientationHandler(tiltLR, tiltFB, dir1);
+    deviceOrientationHandler(tiltLR, tiltFB, dir);
   }, false);
-	emap.applyDeltaScaleRotation({
-    rotation: dir1,
-    callback: function(err, state) {
-      handleMapState(err,state,true);
-    }
-  });
+} else {
+  document.getElementById("doEvent").innerHTML = "Not supported."
 }
+document.getElementById("doTiltLR").innerHTML = Math.round(tiltLR);
+document.getElementById("doTiltFB").innerHTML = Math.round(tiltFB);
+document.getElementById("doDirection").innerHTML = Math.round(dir);
 
+// Apply the transform to the image
+var logo = document.getElementById("imgLogo");
+logo.style.webkitTransform =
+  "rotate("+ tiltLR +"deg) rotate3d(1,0,0, "+ (tiltFB*-1)+"deg)";
+logo.style.MozTransform = "rotate("+ tiltLR +"deg)";
+logo.style.transform =
+  "rotate("+ tiltLR +"deg) rotate3d(1,0,0, "+ (tiltFB*-1)+"deg)";
 /*---- stop dragging of tiles ----*/
 //  domDelegate = require('dom-delegate'),
 // as images are loaded dynamicaly delegate event on class .tile
