@@ -71,7 +71,7 @@ function deviceMotionHandler(evt) {
   // acceleration
   var evAcceleration = evt.acceleration;
 
-  accelerationEl.children[1].innerHTML = evAcceleration.x;
+  accelerationEl.children[1].innerHTML = lastRot;
   accelerationEl.children[3].innerHTML = evAcceleration.y;
   accelerationEl.children[5].innerHTML = evAcceleration.z;
 
