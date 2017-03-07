@@ -58,6 +58,10 @@ emap.setView({
 } else {
   document.getElementById("doEvent").innerHTML = "Not supported."
 }
+document.getElementById("doTiltLR").innerHTML = Math.round(tiltLR);
+document.getElementById("doTiltFB").innerHTML = Math.round(tiltFB);
+document.getElementById("doDirection").innerHTML = Math.round(dir);
+	
 // if (window.DeviceOrientationEvent) {
 //   document.getElementById("doEvent").innerHTML = "DeviceOrientation";
 //   // Listen for the deviceorientation event and handle the raw data
