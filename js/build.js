@@ -79,8 +79,8 @@ function deviceMotionHandler(evt) {
   var accIncGravity = evt.accelerationIncludingGravity;
 
   accIncGravEl.children[1].innerHTML = accIncGravity.x;
-  accIncGravEl.children[3].innerHTML = accIncGravity.y;
-  accIncGravEl.children[5].innerHTML = accIncGravity.z;
+  accIncGravEl.children[3].innerHTML = rotationRate.gamma;
+  accIncGravEl.children[5].innerHTML = view.Azimuth;
 
   // rotation rate
   var rotationRate = evt.rotationRate;
