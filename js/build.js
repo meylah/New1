@@ -60,8 +60,8 @@ function deviceOrientationHandler(evt) {
 
   // horizontal tilt
   orientationEl.children[5].innerHTML = evt.gamma;
-  var DeltaRot=RoomAzimuth-evt.alpha
-    RoomAzimuth=evt.alpha
+  var DeltaRot=RoomAzimuth+evt.alpha
+    RoomAzimuth=-evt.alpha
     emap.applyDeltaScaleRotation({
     rotation:DeltaRot,
     callback: function(err, state) {
