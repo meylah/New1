@@ -60,11 +60,7 @@ function deviceOrientationHandler(evt) {
 
   // horizontal tilt
   orientationEl.children[5].innerHTML = evt.gamma;
-}
-
-if (window.DeviceMotionEvent) {
-  window.addEventListener('devicemotion', deviceMotionHandler, false);
-    var DeltaRot=RoomAzimuth-evt.alpha
+  var DeltaRot=RoomAzimuth-evt.alpha
     RoomAzimuth=evt.alpha
     emap.applyDeltaScaleRotation({
     rotation:DeltaRot,
@@ -72,6 +68,10 @@ if (window.DeviceMotionEvent) {
       handleMapState(err,state,true);
     }
   });
+}
+
+if (window.DeviceMotionEvent) {
+  window.addEventListener('devicemotion', deviceMotionHandler, false);
 }
 
 function deviceMotionHandler(evt) {
