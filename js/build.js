@@ -84,12 +84,12 @@ function deviceMotionHandler(evt) {
 
   // rotation rate
   var rotationRate = evt.rotationRate;
-
+  var DeltaRot=view.Azimuth-rotationRate.gamma
   rotationEl.children[1].innerHTML = rotationRate.alpha;
   rotationEl.children[3].innerHTML = rotationRate.beta;
   rotationEl.children[5].innerHTML = rotationRate.gamma;
   emap.applyDeltaScaleRotation({
-    rotation:view.Azimuth-rotationRate.gamma,
+    rotation:DeltaRot,
     callback: function(err, state) {
       handleMapState(err,state,true);
     }
