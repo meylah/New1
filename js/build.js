@@ -89,7 +89,7 @@ function deviceMotionHandler(evt) {
   rotationEl.children[3].innerHTML = rotationRate.beta;
   rotationEl.children[5].innerHTML = rotationRate.gamma;
   emap.applyDeltaScaleRotation({
-    rotation:rotationRate.gamma,
+    rotation:view.Azimuth-rotationRate.gamma,
     callback: function(err, state) {
       handleMapState(err,state,true);
     }
@@ -382,6 +382,7 @@ em.prototype.setView = function(params) {
       ? Math.pow(2,view.zoom) : view.resolution
       ? this.maxRes/view.resolution : 0,
     view.rotation = view.rotation || 0;
+    view.Azimuth = view.rotation || 0;
   } else {
     cb.call(scope,new Error('view details are wrong'));
     return;
