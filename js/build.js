@@ -56,7 +56,7 @@ function deviceOrientationHandler(evt) {
   orientationEl.children[1].innerHTML = evt.alpha;
 
   // vertical tilt
-  orientationEl.children[3].innerHTML = evt.beta;
+  orientationEl.children[3].innerHTML = RoomAzimuth;
 
   // horizontal tilt
   orientationEl.children[5].innerHTML = evt.gamma;
@@ -86,9 +86,9 @@ function deviceMotionHandler(evt) {
   // acceleration including gravity
   var accIncGravity = evt.accelerationIncludingGravity;
   var rotationRate = evt.rotationRate;
-  accIncGravEl.children[1].innerHTML = lastRot;
-  accIncGravEl.children[3].innerHTML = rotationRate.gamma;
-  accIncGravEl.children[5].innerHTML = RoomAzimuth;
+  accIncGravEl.children[1].innerHTML = rotationRate.alpha;
+  accIncGravEl.children[3].innerHTML = rotationRate.beta;
+  accIncGravEl.children[5].innerHTML = rotationRate.gamma;
 
   // rotation rate
 
