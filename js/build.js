@@ -83,8 +83,8 @@ function deviceMotionHandler(evt) {
   accIncGravEl.children[5].innerHTML = RoomAzimuth;
 
   // rotation rate
-  var DeltaRot=RoomAzimuth+rotationRate.gamma
-  RoomAzimuth=-rotationRate.gamma
+  var DeltaRot=RoomAzimuth+rotationRate.alpha
+  RoomAzimuth=-rotationRate.alpha
   rotationEl.children[1].innerHTML = rotationRate.alpha;
   rotationEl.children[3].innerHTML = rotationRate.beta;
   rotationEl.children[5].innerHTML = rotationRate.gamma;
