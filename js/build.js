@@ -64,6 +64,14 @@ function deviceOrientationHandler(evt) {
 
 if (window.DeviceMotionEvent) {
   window.addEventListener('devicemotion', deviceMotionHandler, false);
+    var DeltaRot=RoomAzimuth-evt.alpha
+    RoomAzimuth=evt.alpha
+    emap.applyDeltaScaleRotation({
+    rotation:DeltaRot,
+    callback: function(err, state) {
+      handleMapState(err,state,true);
+    }
+  });
 }
 
 function deviceMotionHandler(evt) {
@@ -83,17 +91,10 @@ function deviceMotionHandler(evt) {
   accIncGravEl.children[5].innerHTML = RoomAzimuth;
 
   // rotation rate
-  var DeltaRot=RoomAzimuth+rotationRate.alpha
-  RoomAzimuth=-rotationRate.alpha
+
   rotationEl.children[1].innerHTML = rotationRate.alpha;
-  rotationEl.children[3].innerHTML = DeltaRot;
+  rotationEl.children[3].innerHTML = rotationRate.beta;
   rotationEl.children[5].innerHTML = rotationRate.gamma;
-  emap.applyDeltaScaleRotation({
-    rotation:DeltaRot,
-    callback: function(err, state) {
-      handleMapState(err,state,true);
-    }
-  });
   // interval
   var interval = evt.interval;
   intervalEl.children[1].innerHTML = interval;
