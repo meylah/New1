@@ -86,7 +86,7 @@ function deviceMotionHandler(evt) {
   var DeltaRot=RoomAzimuth+rotationRate.alpha
   RoomAzimuth=-rotationRate.alpha
   rotationEl.children[1].innerHTML = rotationRate.alpha;
-  rotationEl.children[3].innerHTML = rotationRate.beta;
+  rotationEl.children[3].innerHTML = DeltaRot;
   rotationEl.children[5].innerHTML = rotationRate.gamma;
   emap.applyDeltaScaleRotation({
     rotation:DeltaRot,
