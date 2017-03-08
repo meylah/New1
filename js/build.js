@@ -8,7 +8,7 @@ var $ = require('jquery'),
   mapTheTiles = require('map-the-tiles'),
   Hammer = require('hammerjs'), 
   vp, size, emap; 
-var RoomAzimuth;
+var RoomAzimuth=0;
 vp = document.querySelector('.rt-viewport');
 size = {width: vp.offsetWidth, height: vp.offsetHeight};
 emap = new emptyMap(size);
