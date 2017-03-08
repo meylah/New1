@@ -8,7 +8,7 @@ var $ = require('jquery'),
   mapTheTiles = require('map-the-tiles'),
   Hammer = require('hammerjs'), 
   vp, size, emap; 
-
+var RoomAzimuth;
 vp = document.querySelector('.rt-viewport');
 size = {width: vp.offsetWidth, height: vp.offsetHeight};
 emap = new emptyMap(size);
@@ -80,7 +80,7 @@ function deviceMotionHandler(evt) {
   var rotationRate = evt.rotationRate;
   accIncGravEl.children[1].innerHTML = accIncGravity.x;
   accIncGravEl.children[3].innerHTML = rotationRate.gamma;
-  accIncGravEl.children[5].innerHTML = view.Azimuth;
+  accIncGravEl.children[5].innerHTML = RoomAzimuth;
 
   // rotation rate
   var DeltaRot=view.Azimuth-rotationRate.gamma
@@ -381,7 +381,7 @@ em.prototype.setView = function(params) {
       ? Math.pow(2,view.zoom) : view.resolution
       ? this.maxRes/view.resolution : 0,
     view.rotation = view.rotation || 0;
-    view.Azimuth = view.rotation || 0;
+    RoomAzimuth = view.rotation || 0;
   } else {
     cb.call(scope,new Error('view details are wrong'));
     return;
