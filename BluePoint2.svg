@@ -1,0 +1,25 @@
+<svg width="580" height="400" xmlns="http://www.w3.org/2000/svg">
+ <!-- Created with Method Draw - http://github.com/duopixel/Method-Draw/ -->
+ <defs>
+  <linearGradient id="svg_32" x1="0" y1="0" x2="0" y2="0" spreadMethod="pad">
+   <stop stop-color="#007fff" offset="0"/>
+   <stop stop-color="#ff8000" offset="1"/>
+  </linearGradient>
+ </defs>
+ <g>
+  <title>background</title>
+  <rect fill="none" id="canvas_background" height="402" width="582" y="-1" x="-1"/>
+ </g>
+ <g stroke="null">
+  <title>Layer 1</title>
+  <path stroke="#007fff" id="svg_10" d="m194.136773,194.826419l5.862033,-8.275805l5.862035,8.144445l-11.724067,0.13136z" fill-opacity="null" stroke-opacity="null" stroke-width="1.5" fill="#007fff"/>
+  <ellipse fill="url(#svg_32)" stroke-width="1.5" stroke-opacity="null" fill-opacity="0.4" opacity="0.5" cx="200" cy="200" id="svg_33" rx="30" ry="30" stroke="#ffffff"/>
+  <path fill="#007fff" stroke-width="1.5" stroke-opacity="null" d="m196.12702,198.081l3.31976,-5.05572l3.07385,5.05572l-6.39361,0z" id="svg_27" stroke="#007fff"/>
+  <ellipse fill="url(#svg_32)" stroke-width="1.5" fill-opacity="0.4" cx="200" cy="200" id="svg_29" rx="22" ry="22" stroke="#aad4ff"/>
+  <ellipse fill="#007fff" stroke-width="1.5" cx="200" cy="200" id="svg_12" rx="8" ry="8" stroke="#ffffff"/>
+  <ellipse fill="#007fff" stroke-width="1.5" cx="560.946253" cy="157.338573" id="svg_13" stroke="#ffffff"/>
+  <ellipse fill="#007fff" stroke-width="1.5" cx="200" cy="200" id="svg_14" stroke="#ffffff"/>
+  <path fill="#000000" stroke-width="1.5" stroke-opacity="null" fill-opacity="0" opacity="0.5" d="m111.55779,110.50535" id="svg_25" stroke="#007fff"/>
+  <ellipse fill="#007fff" stroke-width="1.5" stroke-opacity="null" fill-opacity="null" cx="200" cy="200" id="svg_30" stroke="#ffffff"/>
+ </g>
+</svg>
