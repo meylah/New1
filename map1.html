@@ -108,19 +108,6 @@
           .attr("height", 400)
           .attr("x", 0)
           .attr("y",0);
-          var img = g.append("svg:image")
-          .attr("xlink:href", "a.svg")
-          .attr("width", 40)
-          .attr("height", 40)
-          .attr("x", 200)
-          .attr("y",200);
-          var img = g.append("svg:image")
-          .attr("xlink:href", "BluePoint2.svg")
-          .attr("width", 400)
-          .attr("height", 400)
-          .attr("x", 100)
-          .attr("y",100);
-
           d3.xml("Floor_Plan11.svg").mimeType("image/svg+xml").get(function(error, xml) {
             if (error) throw error;
             document.body.appendChild(xml.documentElement);
