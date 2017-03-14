@@ -95,19 +95,9 @@
       <div class="rt-scalable-stack">
       <script src="dist/snap.svg.js"></script>
         <script>
-            window.onload = function () {
-            var g = Snap();
-            g.attr({
-                viewBox: [0, 0, 800, 600]
-            });
-            
-            Snap.load("Floor_Plan11.svg", function (f) {
-                function getShift(dot) {
-                    return "t" + (400 - dot.x) + "," + (300 - dot.y);
-                }
           //http://jsfiddle.net/am8ZB/
-          var width = 800,
-          height = 800;
+          var width = 400,
+          height = 400;
           var svg = d3.select("body").append("svg")
           .attr("width", width)
           .attr("height", height);
