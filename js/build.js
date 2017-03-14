@@ -13,7 +13,7 @@ vp = document.querySelector('.rt-viewport');
 size = {width: vp.offsetWidth, height: vp.offsetHeight};
 emap = new emptyMap(size);
 emap.setView({
-  view: {"center":[90000000,-30000000],"zoom":0.05,"rotation":0},
+  view: {"center":[60000000,-30000000],"zoom":0.05,"rotation":0},
   callback: function(err,state) {
     if(err) {
       console.log('setview err: '+ err);
