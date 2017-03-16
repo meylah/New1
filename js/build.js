@@ -27,8 +27,8 @@ emap.setView({
       {width: mapDiv.clientWidth, height: mapDiv.clientHeight});
     loadTiles(state.map.getView(), state.tileMatrix,'osm');
     // show maps current view above map
-    document.getElementById('viewJSON').innerHTML = JSON.stringify(
-      state.map.getView(),null, 2);
+    //document.getElementById('viewJSON').innerHTML = JSON.stringify(
+    //  state.map.getView(),null, 2);
     // get countires geojson data and population data
     $.when(
       $.getJSON('./data/countries.geo.json'),
@@ -133,8 +133,8 @@ function handleMapState(err,state,refreshTiles) {
     });
   }
   //show maps current view above map
-  document.getElementById('viewJSON').innerHTML = JSON.stringify(
-    state.map.getView(),null, 2);
+  //document.getElementById('viewJSON').innerHTML = JSON.stringify(
+  //  state.map.getView(),null, 2);
 }
 
 // now lets pan the map
@@ -217,8 +217,8 @@ mc.on('pinchend', function(ev) {
       svgLayer.setAttribute('transform','matrix('+state.matrix.join(', ')+')');
       loadTiles(state.map.getView(), state.tileMatrix,'osm');
       //show maps current view above map
-      document.getElementById('viewJSON').innerHTML = JSON.stringify(
-      state.map.getView(),null, 2);
+     // document.getElementById('viewJSON').innerHTML = JSON.stringify(
+     // state.map.getView(),null, 2);
     }
   });
 });
