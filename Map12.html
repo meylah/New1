@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<body>
+<div id="div1"></div>
+<DIV>
+<script type="text/javascript" src="http://mbostock.github.com/d3/d3.js"></script>
+<script>
+//http://jsfiddle.net/am8ZB/
+var width = 1000,
+    height = 1000;
+var svg = d3.select("body").append("svg")
+    .attr("width", width)
+    .attr("height", height);
+
+var g = svg.append("g");
+
+var img = g.append("svg:image")
+    .attr("xlink:href", "Floor_Plan13.svg")
+    .attr("width", 1000)
+    .attr("height", 1000)
+    .attr("x", 0)
+    .attr("y",0);
+// var img = g.append("svg:image")
+//     .attr("xlink:href", "a.svg")
+//     .attr("width", 20)
+//     .attr("height", 20)
+//     .attr("x", 180)
+//     .attr("y",120);
+// var img = g.append("svg:image")
+//     .attr("xlink:href", "a.svg")
+//     .attr("width", 20)
+//     .attr("height", 20)
+//     .attr("x", 100)
+//     .attr("y",100);
+// var img = g.append("svg:image")
+//     .attr("xlink:href", "BluePoint2.svg")
+//     .attr("width", 300)
+//     .attr("height", 300)
+//     .attr("x", 40)
+//     .attr("y",40);
+//     var img = g.append("svg:image")
+//     .attr("xlink:href", "PathA.svg")
+//     .attr("width", 300)
+//     .attr("height", 300)
+//     .attr("x", 40)
+//     .attr("y",40);
+//     var PathA_Var=d3.select("#PathA1");
+//     var PathA_Var2=d3.select("#PathA2");
+//     PathA_Var2.attr({display: ''});
+//d3.xml("Floor_Plan11.svg").mimeType("image/svg+xml").get(function(error, xml) {
+ // if (error) throw error;
+//  document.body.appendChild(xml.documentElement);
+//});
+//d3.select("#Floor_Plan").append("a.svg");
+//d3.xml("a.svg").mimeType("image/svg+xml").get(function(error, xml) {
+//  if (error) throw error;
+//  document.body.appendChild(xml.documentElement);
+//});
+// d3.select("a.svg").append("circle");
+</script>
+
+</DIV>
+<script src="https://d3js.org/d3.v4.js"></script>
+</body>
+</html>
